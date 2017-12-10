@@ -3,43 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cat : MonoBehaviour {
+
+	public static Animator animations;
+
 	public enum Trail { First, Second, Third };
 	public enum Colors { Red, Green, Blue, Normal};
-	public Material[] colors;
+	public Material[] materials;
 	public Trail trail;
-	public Colors color;
-
-	private Material material;
+	public  Colors color;
+	public Material material;
 
 
 	// Use this for initialization
 	void Start () {
 		trail = Trail.First;
 		material = GetComponent<Renderer>().material;
+		animations = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		UpdateTrail();
-		ChangeColor();
+
+		AnimatorStateInfo stateInfo = animations.GetCurrentAnimatorStateInfo(0);
+		UpdateMaterial();
+		//Debug.Log(stateInfo.nameHash);
 	}
 
-	void ChangeColor() { //r = 0, g = 2, b =3
+
+	public void UpdateMaterial() { //r = 0, g = 2, b =3
+
+		Renderer rend = GetComponent<Renderer>();
+		
+
 		if (color == Colors.Red)
 		{
-			material = colors[0];
+			rend.material = materials[0];
 		}
 		else if (color == Colors.Green)
 		{
-			material = colors[1];
+			rend.material = materials[1];
 		}
 		else if (color == Colors.Blue)
 		{
-			material = colors[2];
+			rend.material = materials[2];
 		}
 		else {
-			material = colors[3];
+			rend.material = materials[3];
 		}
+	}
+
+	void OnTriggerEnter()
+	{
+		RandomColor();
 	}
 
 	private Trail UpdateTrail() {
@@ -84,5 +100,19 @@ public class Cat : MonoBehaviour {
 			}
 			transform.Translate(0, 0, -PlatformManager.depth);
 		}
+	}
+
+	public void RandomColor()
+	{
+		switch ((int) Random.Range(0, 3)) {
+			case 0: { color = Colors.Red; break; }
+			case 1: { color = Colors.Green; break; }
+			case 2: { color = Colors.Blue; break; }
+		}
+	}
+
+	public static void RandomShape()
+	{
+		animations.SetInteger("state", (int)Random.Range(1, 4));
 	}
 }

@@ -18,10 +18,11 @@ public class Booster : MonoBehaviour {
 		transform.Rotate(rotationVelocity * Time.deltaTime);
 	}
 	
-	void OnTriggerEnter () {
+	void OnTriggerEnter (Collider other) {
 		Runner.AddBoost();
-
+		Cat.RandomShape();
 		//gameObject.SetActive(false);
+		GUIManager.SetRandomRule();
 	}
 
 	public void SpawnIfAvailable (Vector3 position) {

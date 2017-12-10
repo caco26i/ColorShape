@@ -13,6 +13,10 @@ public class PlatformManager : MonoBehaviour {
 	public PhysicMaterial physicMaterial;
 	public Booster booster;
 
+	public Portal portalSquare;
+	public Portal portalCircle;
+	public Portal portalTriangle;
+
 	private Vector3 nextPosition;
 	private Queue<Transform> objectQueue;
 	private Queue<Transform> objectQueue2;
@@ -59,6 +63,10 @@ public class PlatformManager : MonoBehaviour {
 		position.x += scale.x;
 		booster.SpawnIfAvailable(position);
 
+		portalSquare.SpawnIfAvailable(position);
+		portalCircle.SpawnIfAvailable(position);
+		portalTriangle.SpawnIfAvailable(position);
+
 		Transform o = objectQueue.Dequeue();
 		o.localScale = scale;
 		o.localPosition = position;
@@ -83,8 +91,6 @@ public class PlatformManager : MonoBehaviour {
 		objectQueue3.Enqueue(o3);
 
 		nextPosition += new Vector3(scale.x, 0, 0);
-
-
 	}
 	
 	private void GameStart () {

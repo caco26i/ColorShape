@@ -77,7 +77,4 @@ public class Runner : MonoBehaviour {
 		GUIManager.SetBoosts(boosts);
 	}
 
-	public static void RandomColor() {
-
-	}
 }

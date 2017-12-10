@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
 public class GUIManager : MonoBehaviour {
-	
+
 	private static GUIManager instance;
-	
-	public GUIText boostsText, distanceText, gameOverText, instructionsText, runnerText;
-	
+
+	public GUIText ruleText, boostsText, distanceText, gameOverText, instructionsText, runnerText;
+	public string[] rules = new string[] { "Shape", "F*ck da Shape" };
+
+
 	void Start () {
 		instance = this;
 		GameEventManager.GameStart += GameStart;
@@ -38,5 +40,10 @@ public class GUIManager : MonoBehaviour {
 
 	public static void SetDistance(float distance){
 		instance.distanceText.text = distance.ToString("f0");
+	}
+
+	public static void SetRandomRule()
+	{
+		instance.ruleText.text = instance.rules[Random.Range(0, instance.rules.Length)];
 	}
 }
