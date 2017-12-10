@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d57059cc1f942034bb20e29284f4e0fb
-timeCreated: 1512865435
+timeCreated: 1512880693
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -87,10 +87,10 @@ TextureImporter:
       name: SquareCatSprite_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 128
-        height: 122
+        x: 1
+        y: 8
+        width: 140
+        height: 114
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,10 +101,10 @@ TextureImporter:
       name: SquareCatSprite_1
       rect:
         serializedVersion: 2
-        x: 155
-        y: 2
-        width: 127
-        height: 123
+        x: 150
+        y: 8
+        width: 135
+        height: 114
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,10 +115,10 @@ TextureImporter:
       name: SquareCatSprite_2
       rect:
         serializedVersion: 2
-        x: 312
-        y: 0
-        width: 132
-        height: 124
+        x: 304
+        y: 11
+        width: 145
+        height: 110
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: SquareCatSprite_3
       rect:
         serializedVersion: 2
-        x: 468
-        y: 4
-        width: 116
-        height: 124
+        x: 460
+        y: 8
+        width: 124
+        height: 117
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
