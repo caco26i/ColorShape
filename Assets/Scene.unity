@@ -3808,8 +3808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 400000, guid: 8f033e718f73e46399b06e80ebfd26f3, type: 2}
-  numberOfObjects: 10
-  recycleOffset: 60
+  numberOfObjects: 15
+  recycleOffset: 20
   startPosition: {x: -60, y: -60, z: 50}
   minSize: {x: 10, y: 20, z: 10}
   maxSize: {x: 30, y: 60, z: 10}
@@ -7281,7 +7281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1489935827}
   m_LocalRotation: {x: 0.17364821, y: -0, z: -0, w: 0.9848078}
-  m_LocalPosition: {x: 6.47, y: 16.71, z: -39.67}
+  m_LocalPosition: {x: 6.47, y: 16.2, z: -39.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1946043574}
@@ -7328,8 +7328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 400000, guid: 4cd07194a680a4e65bf4c4c9579152dd, type: 2}
-  numberOfObjects: 10
-  recycleOffset: 75
+  numberOfObjects: 15
+  recycleOffset: 20
   startPosition: {x: -100, y: -100, z: 100}
   minSize: {x: 10, y: 50, z: 10}
   maxSize: {x: 30, y: 100, z: 10}
@@ -7640,8 +7640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 400000, guid: 33b530bd0d930469d957c9448d6eb10b, type: 2}
-  numberOfObjects: 10
-  recycleOffset: 20
+  numberOfObjects: 5
+  recycleOffset: 5
   startPosition: {x: 0, y: 0, z: 0}
   minSize: {x: 10, y: 1, z: 1}
   maxSize: {x: 10, y: 1, z: 1}
