@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4e8e774ea6cceeb4c87333a04d72cd1c
-timeCreated: 1512859058
+timeCreated: 1512879686
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: CircleCatSprite_1
     21300004: CircleCatSprite_2
     21300006: CircleCatSprite_3
+    21300008: CircleCatSprite_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -87,12 +88,12 @@ TextureImporter:
       name: CircleCatSprite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 151
-        height: 124
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -101,12 +102,12 @@ TextureImporter:
       name: CircleCatSprite_1
       rect:
         serializedVersion: 2
-        x: 157
-        y: 1
-        width: 128
-        height: 127
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 155
+        y: 0
+        width: 158
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -115,12 +116,12 @@ TextureImporter:
       name: CircleCatSprite_2
       rect:
         serializedVersion: 2
-        x: 312
-        y: 1
+        x: 322
+        y: 0
         width: 131
-        height: 123
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +130,26 @@ TextureImporter:
       name: CircleCatSprite_3
       rect:
         serializedVersion: 2
-        x: 459
+        x: 453
         y: 7
         width: 128
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 115
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CircleCatSprite_4
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 4
+        width: 9
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
