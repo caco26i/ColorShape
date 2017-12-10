@@ -20,7 +20,8 @@ public class Booster : MonoBehaviour {
 	
 	void OnTriggerEnter () {
 		Runner.AddBoost();
-		gameObject.SetActive(false);
+
+		//gameObject.SetActive(false);
 	}
 
 	public void SpawnIfAvailable (Vector3 position) {

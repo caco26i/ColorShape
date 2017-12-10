@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: daa69a3357a24e84197f3f62695c3218
-timeCreated: 1512923645
+guid: 8b310aa0a0fdb9f45b381ad5357f1da3
+timeCreated: 1512925004
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TriangleCatSprite_0
-    21300002: TriangleCatSprite_1
-    21300004: TriangleCatSprite_2
-    21300006: TriangleCatSprite_3
+    21300000: SadCatSprite_0
+    21300002: SadCatSprite_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -84,27 +82,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TriangleCatSprite_0
+      name: SadCatSprite_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 0
-        width: 132
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: TriangleCatSprite_1
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 0
+        x: 1
+        y: 7
         width: 128
-        height: 128
+        height: 92
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,27 +96,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: TriangleCatSprite_2
+      name: SadCatSprite_1
       rect:
         serializedVersion: 2
-        x: 312
-        y: 0
-        width: 136
-        height: 124
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: TriangleCatSprite_3
-      rect:
-        serializedVersion: 2
-        x: 460
-        y: 4
-        width: 132
-        height: 122
+        x: 139
+        y: 2
+        width: 128
+        height: 93
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
