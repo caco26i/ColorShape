@@ -3808,8 +3808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 400000, guid: 8f033e718f73e46399b06e80ebfd26f3, type: 2}
-  numberOfObjects: 15
-  recycleOffset: 20
+  numberOfObjects: 10
+  recycleOffset: 30
   startPosition: {x: -60, y: -60, z: 50}
   minSize: {x: 10, y: 20, z: 10}
   maxSize: {x: 30, y: 60, z: 10}
@@ -7328,8 +7328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 400000, guid: 4cd07194a680a4e65bf4c4c9579152dd, type: 2}
-  numberOfObjects: 15
-  recycleOffset: 20
+  numberOfObjects: 10
+  recycleOffset: 30
   startPosition: {x: -100, y: -100, z: 100}
   minSize: {x: 10, y: 50, z: 10}
   maxSize: {x: 30, y: 100, z: 10}
@@ -7640,19 +7640,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 400000, guid: 33b530bd0d930469d957c9448d6eb10b, type: 2}
-  numberOfObjects: 5
-  recycleOffset: 5
+  numberOfObjects: 4
+  recycleOffset: 10
   startPosition: {x: 0, y: 0, z: 0}
-  minSize: {x: 10, y: 1, z: 1}
-  maxSize: {x: 10, y: 1, z: 1}
+  size: {x: 10, y: 1, z: 1}
   minGap: {x: 0, y: 0, z: 0}
   maxGap: {x: 0, y: 0, z: 0}
   minY: -5
   maxY: 10
   materials:
-  - {fileID: 2100000, guid: 8b5d9d0f20f2f47689e3675e58fa4226, type: 2}
-  physicMaterials:
-  - {fileID: 13400000, guid: 9eec9f9916af3482cb45155061dcb202, type: 2}
+  - {fileID: 2100000, guid: aef96bc3f754696488a98072adeeed2c, type: 2}
+  - {fileID: 2100000, guid: 10c9406f746cbb0438435b86ed9f49bd, type: 2}
+  - {fileID: 2100000, guid: 25b2eaf4a9f8edb498d5ba2c77df1eae, type: 2}
+  physicMaterial: {fileID: 0}
   booster: {fileID: 333016106}
 --- !u!1 &1943228168
 GameObject:
@@ -7754,7 +7754,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -7791,7 +7791,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8d60080fafab97740aabcc88e5d92406, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7828,7 +7828,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1946043568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.46, y: 1.85, z: 0}
+  m_LocalPosition: {x: 6.78, y: 1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1489935832}
