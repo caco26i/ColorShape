@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4e8e774ea6cceeb4c87333a04d72cd1c
-timeCreated: 1512839918
+timeCreated: 1512859058
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -87,12 +87,12 @@ TextureImporter:
       name: CircleCatSprite_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 4
-        width: 128
-        height: 121
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 151
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -101,12 +101,12 @@ TextureImporter:
       name: CircleCatSprite_1
       rect:
         serializedVersion: 2
-        x: 168
-        y: 0
+        x: 157
+        y: 1
         width: 128
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -116,11 +116,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 312
-        y: 4
-        width: 133
-        height: 116
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 1
+        width: 131
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,10 +131,10 @@ TextureImporter:
         serializedVersion: 2
         x: 459
         y: 7
-        width: 129
+        width: 128
         height: 113
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

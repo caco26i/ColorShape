@@ -19,7 +19,7 @@ public class PlatformManager : MonoBehaviour {
 	public static float depth;
 
 	void Start () {
-		depth = 0.5f;
+		depth = 5f;
 		GameEventManager.GameStart += GameStart;
 		GameEventManager.GameOver += GameOver;
 		objectQueue = new Queue<Transform>(numberOfObjects);
@@ -43,8 +43,8 @@ public class PlatformManager : MonoBehaviour {
 			Random.Range(minSize.z, maxSize.z));
 
 		Vector3 position = nextPosition;
-		position.x += scale.x * depth;
-		position.y += scale.y * depth;
+		position.x += scale.x;
+		position.y += scale.y;
 		booster.SpawnIfAvailable(position);
 
 		Transform o = objectQueue.Dequeue();
@@ -54,8 +54,7 @@ public class PlatformManager : MonoBehaviour {
 		o.GetComponent<Renderer>().material = materials[materialIndex];
 		o.GetComponent<Collider>().material = physicMaterials[materialIndex];
 
-		objectQueue.Enqueue((Transform)Instantiate(
-				prefab, new Vector3(0f, 0f, PlatformManager.depth), Quaternion.identity));
+		//objectQueue.Enqueue((Transform)Instantiate(o, new Vector3(0f, 0f, PlatformManager.depth*2), Quaternion.identity));
 
 		objectQueue.Enqueue(o);
 
