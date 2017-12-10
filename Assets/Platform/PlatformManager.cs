@@ -62,8 +62,7 @@ public class PlatformManager : MonoBehaviour {
 		Transform o = objectQueue.Dequeue();
 		o.localScale = scale;
 		o.localPosition = position;
-		int materialIndex = Random.Range(0, materials.Length);
-		o.GetComponent<Renderer>().material = materials[materialIndex];
+		o.GetComponent<Renderer>().material = materials[0];
 		o.GetComponent<Collider>().material = physicMaterial;
 		objectQueue.Enqueue(o);
 
@@ -71,7 +70,7 @@ public class PlatformManager : MonoBehaviour {
 		o2.localScale = scale;
 		position.z = -depth;
 		o2.localPosition = position;
-		o2.GetComponent<Renderer>().material = materials[materialIndex];
+		o2.GetComponent<Renderer>().material = materials[1];
 		o2.GetComponent<Collider>().material = physicMaterial;
 		objectQueue2.Enqueue(o2);
 
@@ -79,7 +78,7 @@ public class PlatformManager : MonoBehaviour {
 		o3.localScale = scale;
 		position.z = -depth * 2;
 		o3.localPosition = position;
-		o3.GetComponent<Renderer>().material = materials[materialIndex];
+		o3.GetComponent<Renderer>().material = materials[2];
 		o3.GetComponent<Collider>().material = physicMaterial;
 		objectQueue3.Enqueue(o3);
 
