@@ -7,14 +7,16 @@ public class PlatformManager : MonoBehaviour {
 	public int numberOfObjects;
 	public float recycleOffset;
 	public Vector3 startPosition;
-	public Vector3 minSize, maxSize, minGap, maxGap;
+	public Vector3 size, minGap, maxGap;
 	public float minY, maxY;
 	public Material[] materials;
-	public PhysicMaterial[] physicMaterials;
+	public PhysicMaterial physicMaterial;
 	public Booster booster;
 
 	private Vector3 nextPosition;
 	private Queue<Transform> objectQueue;
+	private Queue<Transform> objectQueue2;
+	private Queue<Transform> objectQueue3;
 
 	public static float depth;
 
@@ -23,28 +25,38 @@ public class PlatformManager : MonoBehaviour {
 		GameEventManager.GameStart += GameStart;
 		GameEventManager.GameOver += GameOver;
 		objectQueue = new Queue<Transform>(numberOfObjects);
-		for (int i = 0; i < numberOfObjects; i++) {
-			objectQueue.Enqueue((Transform) Instantiate(
-				prefab, new Vector3(0f, 0f, 0f), Quaternion.identity));
+		for (int i = 0; i < numberOfObjects; i++)
+		{
+			objectQueue.Enqueue((Transform)Instantiate(
+				prefab, new Vector3(0f, 1000f, 0f), Quaternion.identity));
+		}
+		objectQueue2 = new Queue<Transform>(numberOfObjects);
+		for (int i = 0; i < numberOfObjects; i++)
+		{
+			objectQueue2.Enqueue((Transform)Instantiate(
+				prefab, new Vector3(0f, 1000f, 0f), Quaternion.identity));
+		}
+		objectQueue3 = new Queue<Transform>(numberOfObjects);
+		for (int i = 0; i < numberOfObjects; i++)
+		{
+			objectQueue3.Enqueue((Transform)Instantiate(
+				prefab, new Vector3(0f, 1000f, 0f), Quaternion.identity));
 		}
 		enabled = false;
 	}
 
 	void Update () {
-		if(objectQueue.Peek().localPosition.x + recycleOffset < Runner.distanceTraveled){
+		if (objectQueue.Peek().localPosition.x + recycleOffset < Runner.distanceTraveled)
+		{
 			Recycle();
 		}
 	}
 
 	private void Recycle () {
-		Vector3 scale = new Vector3(
-			Random.Range(minSize.x, maxSize.x),
-			Random.Range(minSize.y, maxSize.y),
-			Random.Range(minSize.z, maxSize.z));
+		Vector3 scale = new Vector3(size.x, depth, depth);
 
 		Vector3 position = nextPosition;
 		position.x += scale.x;
-		position.y += scale.y;
 		booster.SpawnIfAvailable(position);
 
 		Transform o = objectQueue.Dequeue();
@@ -52,23 +64,28 @@ public class PlatformManager : MonoBehaviour {
 		o.localPosition = position;
 		int materialIndex = Random.Range(0, materials.Length);
 		o.GetComponent<Renderer>().material = materials[materialIndex];
-		o.GetComponent<Collider>().material = physicMaterials[materialIndex];
-
-		//objectQueue.Enqueue((Transform)Instantiate(o, new Vector3(0f, 0f, PlatformManager.depth*2), Quaternion.identity));
-
+		o.GetComponent<Collider>().material = physicMaterial;
 		objectQueue.Enqueue(o);
 
-		nextPosition += new Vector3(
-			Random.Range(minGap.x, maxGap.x) + scale.x,
-			Random.Range(minGap.y, maxGap.y),
-			Random.Range(minGap.z, maxGap.z));
+		Transform o2 = objectQueue2.Dequeue();
+		o2.localScale = scale;
+		position.z = -depth;
+		o2.localPosition = position;
+		o2.GetComponent<Renderer>().material = materials[materialIndex];
+		o2.GetComponent<Collider>().material = physicMaterial;
+		objectQueue2.Enqueue(o2);
 
-		if(nextPosition.y < minY){
-			nextPosition.y = minY + maxGap.y;
-		}
-		else if(nextPosition.y > maxY){
-			nextPosition.y = maxY - maxGap.y;
-		}
+		Transform o3 = objectQueue3.Dequeue();
+		o3.localScale = scale;
+		position.z = -depth * 2;
+		o3.localPosition = position;
+		o3.GetComponent<Renderer>().material = materials[materialIndex];
+		o3.GetComponent<Collider>().material = physicMaterial;
+		objectQueue3.Enqueue(o3);
+
+		nextPosition += new Vector3(scale.x, 0, 0);
+
+
 	}
 	
 	private void GameStart () {

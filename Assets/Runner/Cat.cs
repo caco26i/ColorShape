@@ -41,7 +41,7 @@ public class Cat : MonoBehaviour {
 			{
 				trail = Trail.Second;
 			}
-			transform.Translate(0, 0, PlatformManager.depth*2);
+			transform.Translate(0, 0, PlatformManager.depth);
 		}
 	}
 
@@ -57,7 +57,7 @@ public class Cat : MonoBehaviour {
 			{
 				trail = Trail.Second;
 			}
-			transform.Translate(0, 0, -PlatformManager.depth*2);
+			transform.Translate(0, 0, -PlatformManager.depth);
 		}
 	}
 }
