@@ -9,7 +9,7 @@ public class Cat : MonoBehaviour {
 	public enum Trail { First, Second, Third };
 	public enum Colors { Red, Green, Blue, Normal };
 
-	public enum Shapes { Circle, Square, Triangle, Normal = -1, Sad = -2};
+	public enum Shapes { Circle, Square, Triangle, Normal = -1, Sad = 3};
 	public static Shapes shape;
 	public Trail trail;
 	public static Colors color;
@@ -90,5 +90,11 @@ public class Cat : MonoBehaviour {
 	public void RandomShape()
 	{
 		shape = (Shapes) (int) Random.Range(0, 3);
+	}
+
+	public void AnimateSad()
+	{
+		color = Colors.Normal;
+		shape = Shapes.Sad;
 	}
 }

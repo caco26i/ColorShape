@@ -21,6 +21,7 @@ public class Portal : MonoBehaviour
 	{
 		GameEventManager.GameOver += GameOver;
 		gameObject.SetActive(false);
+		RandomColor();
 	}
 
 	void Update()
@@ -37,13 +38,45 @@ public class Portal : MonoBehaviour
 
 	public void UpdateMaterial()
 	{
-		renderer.material = ColorManager.GetMaterial((int)color);
+		Material material = ColorManager.GetMaterial((int)color);
+		foreach (Transform child in transform)
+		{
+			child.GetComponent<Renderer>().material = material;
+			foreach (Transform child2 in child.GetComponent<Transform>())
+				child2.GetComponent<Renderer>().material = material;
+		}
 	}
 
 	void OnTriggerEnter(Collider collider)
 	{
+		if (GUIManager.getRuleNumber() == 0) {
+			if ((int) Cat.color != (int) this.color) {
+				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+			}
+		}
+		else if (GUIManager.getRuleNumber() == 1) {
+			if ((int)Cat.shape != (int)this.shape)
+			{
+				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+			}
+		}
+		else if (GUIManager.getRuleNumber() == 2) {
+			if ((int)Cat.color == (int)this.color)
+			{
+				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+			}
+		}
+		else if (GUIManager.getRuleNumber() == 3) {
+			if ((int)Cat.shape == (int)this.shape)
+			{
+				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+			}
+		}
 		print(Cat.shape);
 		print(this.shape);
+
+		print((int)Cat.color);
+		print(this.color);
 	}
 
 	public void SpawnIfAvailable(Vector3 position)
@@ -65,6 +98,6 @@ public class Portal : MonoBehaviour
 
 	public void RandomColor()
 	{
-		color = (Colors)(int)Random.Range(0, 3);
+		color = (Colors) (int)Random.Range(0, 3);
 	}
 }

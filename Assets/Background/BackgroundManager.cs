@@ -26,7 +26,7 @@ public class BackgroundManager : MonoBehaviour
 		for (int i = 0; i < numberOfObjects; i++)
 		{
 			objectQueue.Enqueue((Transform)Instantiate(
-				prefab, new Vector3(0f, 0f, -100f), Quaternion.identity));
+				prefab, new Vector3(0f, 0f, 0f), Quaternion.identity));
 		}
 		enabled = false;
 	}
@@ -54,7 +54,6 @@ public class BackgroundManager : MonoBehaviour
 		o.localScale = scale;
 		o.localPosition = position;
 
-		Vector3 screenPos = GameObject.FindWithTag("MainCamera").GetComponent<Camera>().WorldToScreenPoint(prefab.position);
 		nextPosition.x += 278f;
 		objectQueue.Enqueue(o);
 	}

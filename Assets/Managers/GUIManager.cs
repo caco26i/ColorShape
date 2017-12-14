@@ -6,6 +6,7 @@ public class GUIManager : MonoBehaviour {
 
 	public GUIText ruleText, boostsText, distanceText, gameOverText, instructionsText, runnerText;
 	public string[] rules = new string[] { "Shape", "F*ck da Shape" };
+	public int ruleNumber;
 
 
 	void Start () {
@@ -44,6 +45,12 @@ public class GUIManager : MonoBehaviour {
 
 	public static void SetRandomRule()
 	{
-		instance.ruleText.text = instance.rules[Random.Range(0, instance.rules.Length)];
+		instance.ruleNumber = (int)Random.Range(0, instance.rules.Length);
+		instance.ruleText.text = instance.rules[instance.ruleNumber];
+	}
+
+	public static int getRuleNumber()
+	{
+		return instance.ruleNumber;
 	}
 }
