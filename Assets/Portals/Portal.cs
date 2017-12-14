@@ -11,6 +11,12 @@ public class Portal : MonoBehaviour
 	public Colors color;
 	public Material material;
 
+	public enum Shapes { Circle, Square, Triangle};
+	public Shapes shape;
+
+	public Renderer renderer;
+
+
 	void Start()
 	{
 		GameEventManager.GameOver += GameOver;
@@ -25,11 +31,19 @@ public class Portal : MonoBehaviour
 			return;
 		}
 		transform.Rotate(rotationVelocity * Time.deltaTime);
+
+		UpdateMaterial();
 	}
 
-	void OnTriggerEnter(Collider other)
+	public void UpdateMaterial()
 	{
-		//TODO
+		renderer.material = ColorManager.GetMaterial((int)color);
+	}
+
+	void OnTriggerEnter(Collider collider)
+	{
+		print(Cat.shape);
+		print(this.shape);
 	}
 
 	public void SpawnIfAvailable(Vector3 position)
@@ -41,6 +55,7 @@ public class Portal : MonoBehaviour
 		}
 		transform.localPosition = position + offset;
 		gameObject.SetActive(true);
+		RandomColor();
 	}
 
 	private void GameOver()
@@ -48,4 +63,8 @@ public class Portal : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
+	public void RandomColor()
+	{
+		color = (Colors)(int)Random.Range(0, 3);
+	}
 }

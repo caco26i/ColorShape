@@ -20,8 +20,8 @@ public class Booster : MonoBehaviour {
 	
 	void OnTriggerEnter (Collider other) {
 		Runner.AddBoost();
-		Cat.RandomShape();
-		//gameObject.SetActive(false);
+		GameObject.FindWithTag("Player").BroadcastMessage("RandomShape");
+		GameObject.FindWithTag("Player").BroadcastMessage("RandomColor");
 		GUIManager.SetRandomRule();
 	}
 

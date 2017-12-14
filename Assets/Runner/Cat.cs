@@ -7,58 +7,39 @@ public class Cat : MonoBehaviour {
 	public static Animator animations;
 
 	public enum Trail { First, Second, Third };
-	public enum Colors { Red, Green, Blue, Normal};
-	public Material[] materials;
+	public enum Colors { Red, Green, Blue, Normal };
+
+	public enum Shapes { Circle, Square, Triangle, Normal = -1, Sad = -2};
+	public static Shapes shape;
 	public Trail trail;
-	public  Colors color;
-	public Material material;
+	public static Colors color;
+	public Renderer renderer;
 
 
 	// Use this for initialization
 	void Start () {
-		trail = Trail.First;
-		material = GetComponent<Renderer>().material;
+		renderer = GetComponent<Renderer>();
 		animations = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		UpdateTrail();
-
-		AnimatorStateInfo stateInfo = animations.GetCurrentAnimatorStateInfo(0);
 		UpdateMaterial();
-		//Debug.Log(stateInfo.nameHash);
+		animations.SetInteger("state", (int) shape);
 	}
 
 
-	public void UpdateMaterial() { //r = 0, g = 2, b =3
-
-		Renderer rend = GetComponent<Renderer>();
-		
-
-		if (color == Colors.Red)
-		{
-			rend.material = materials[0];
-		}
-		else if (color == Colors.Green)
-		{
-			rend.material = materials[1];
-		}
-		else if (color == Colors.Blue)
-		{
-			rend.material = materials[2];
-		}
-		else {
-			rend.material = materials[3];
-		}
+	public void UpdateMaterial() {
+		renderer.material = ColorManager.GetMaterial((int) color);
 	}
 
 	void OnTriggerEnter()
 	{
-		RandomColor();
+		//RandomColor();
 	}
 
-	private Trail UpdateTrail() {
+	private void UpdateTrail() {
 		if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			UpTrail();
@@ -67,7 +48,6 @@ public class Cat : MonoBehaviour {
 		{
 			DownTrail();
 		}
-		return trail;
 	}
 
 	public void UpTrail()
@@ -104,15 +84,11 @@ public class Cat : MonoBehaviour {
 
 	public void RandomColor()
 	{
-		switch ((int) Random.Range(0, 3)) {
-			case 0: { color = Colors.Red; break; }
-			case 1: { color = Colors.Green; break; }
-			case 2: { color = Colors.Blue; break; }
-		}
+		color = (Colors) (int) Random.Range(0, 3);
 	}
 
-	public static void RandomShape()
+	public void RandomShape()
 	{
-		animations.SetInteger("state", (int)Random.Range(1, 4));
+		shape = (Shapes) (int) Random.Range(0, 3);
 	}
 }

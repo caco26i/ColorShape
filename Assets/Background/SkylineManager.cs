@@ -15,10 +15,11 @@ public class SkylineManager : MonoBehaviour {
 	void Start () {
 		GameEventManager.GameStart += GameStart;
 		GameEventManager.GameOver += GameOver;
+
 		objectQueue = new Queue<Transform>(numberOfObjects);
 		for(int i = 0; i < numberOfObjects; i++){
-			objectQueue.Enqueue((Transform)Instantiate(
-				prefab, new Vector3(0f, 0f, -100f), Quaternion.identity));
+			objectQueue.Enqueue((Transform) Instantiate(
+				prefab, new Vector3(0f, 0f, 0f), Quaternion.identity));
 		}
 		enabled = false;
 	}
@@ -36,13 +37,15 @@ public class SkylineManager : MonoBehaviour {
 			Random.Range(minSize.z, maxSize.z));
 
 		Vector3 position = nextPosition;
-		position.x += scale.x * 0.5f;
-		position.y += scale.y * 0.5f;
+		position.x += scale.x;
+		position.y += scale.y;
 
 		Transform o = objectQueue.Dequeue();
-		o.localScale = scale;
-		o.localPosition = position;
-		nextPosition.x += scale.x;
+			o.localScale = scale;
+			o.localPosition = position;
+
+			nextPosition.x += scale.x;
+			nextPosition.z = startPosition.z + scale.z;
 		objectQueue.Enqueue(o);
 	}
 	
