@@ -14,24 +14,43 @@ public class Cat : MonoBehaviour {
 	public Trail trail;
 	public static Colors color;
 	public Renderer renderer;
+	public static int lifes;
 
 
 	// Use this for initialization
 	void Start () {
+		GameEventManager.GameStart += GameStart;
 		renderer = GetComponent<Renderer>();
 		animations = GetComponent<Animator>();
+	}
+
+	private void GameStart() {
+		lifes = 3;
+		shape = Shapes.Normal;
+		color = Colors.Normal;
+		GameObject.FindWithTag("Life1").GetComponent<Animator>().SetBool("on", true);
+		GameObject.FindWithTag("Life2").GetComponent<Animator>().SetBool("on", true);
+		GameObject.FindWithTag("Life3").GetComponent<Animator>().SetBool("on", true);
+
 	}
 
 	// Update is called once per frame
 	void Update () {
 		UpdateTrail();
 		UpdateMaterial();
+		UpdateLifes();
 		animations.SetInteger("state", (int) shape);
+
+		if (lifes <= 0)
+		{
+			GameEventManager.TriggerGameOver();
+		}
 	}
 
 
 	public void UpdateMaterial() {
-		renderer.material = ColorManager.GetMaterial((int) color);
+		//renderer.material = ColorManager.GetMaterial((int)color);
+		renderer.material.SetColor("_Color", ColorManager.GetColor((int)color));
 	}
 
 	void OnTriggerEnter()
@@ -96,5 +115,25 @@ public class Cat : MonoBehaviour {
 	{
 		color = Colors.Normal;
 		shape = Shapes.Sad;
+	}
+
+	public static void LifeLess()
+	{
+		lifes--;
+	}
+
+	private void UpdateLifes() {
+		if (lifes == 2)
+		{
+			GameObject.FindWithTag("Life3").GetComponent<Animator>().SetBool("on", false);
+		}
+		else if (lifes == 1)
+		{
+			GameObject.FindWithTag("Life2").GetComponent<Animator>().SetBool("on", false);
+		}
+		else if (lifes == 0)
+		{
+			GameObject.FindWithTag("Life1").GetComponent<Animator>().SetBool("on", false);
+		}
 	}
 }

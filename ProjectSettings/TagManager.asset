@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Colors
+  - Life1
+  - Life2
+  - Life3
   layers:
   - Default
   - TransparentFX

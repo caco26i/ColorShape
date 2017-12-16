@@ -39,39 +39,52 @@ public class Portal : MonoBehaviour
 	public void UpdateMaterial()
 	{
 		Material material = ColorManager.GetMaterial((int)color);
+		Color colortemp = ColorManager.GetColor((int)color);
+
 		foreach (Transform child in transform)
 		{
-			child.GetComponent<Renderer>().material = material;
+			//child.GetComponent<Renderer>().material = material;
+			child.GetComponent<Renderer>().material.SetColor("_Color", colortemp);
 			foreach (Transform child2 in child.GetComponent<Transform>())
-				child2.GetComponent<Renderer>().material = material;
+				child2.GetComponent<Renderer>().material.SetColor("_Color", colortemp);
 		}
 	}
 
 	void OnTriggerEnter(Collider collider)
 	{
+		//int shape = (int)Cat.shape+0;
+		//int color = (int)Cat.color+0;
 		if (GUIManager.getRuleNumber() == 0) {
 			if ((int) Cat.color != (int) this.color) {
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+				Cat.LifeLess();
 			}
 		}
 		else if (GUIManager.getRuleNumber() == 1) {
 			if ((int)Cat.shape != (int)this.shape)
 			{
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+				Cat.LifeLess();
 			}
 		}
 		else if (GUIManager.getRuleNumber() == 2) {
 			if ((int)Cat.color == (int)this.color)
 			{
+
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+				Cat.LifeLess();
 			}
 		}
 		else if (GUIManager.getRuleNumber() == 3) {
 			if ((int)Cat.shape == (int)this.shape)
 			{
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
+				Cat.LifeLess();
 			}
 		}
+
+		//Cat.shape = (Cat.Shapes) shape;
+		//Cat.color = (Cat.Colors) color;
 		print(Cat.shape);
 		print(this.shape);
 

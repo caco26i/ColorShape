@@ -7,6 +7,7 @@ public class SkylineManager : MonoBehaviour {
 	public int numberOfObjects;
 	public float recycleOffset;
 	public Vector3 startPosition;
+	public Vector3 startRotation;
 	public Vector3 minSize, maxSize;
 
 	private Vector3 nextPosition;
@@ -19,7 +20,7 @@ public class SkylineManager : MonoBehaviour {
 		objectQueue = new Queue<Transform>(numberOfObjects);
 		for(int i = 0; i < numberOfObjects; i++){
 			objectQueue.Enqueue((Transform) Instantiate(
-				prefab, new Vector3(0f, 0f, 0f), Quaternion.identity));
+				prefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(startRotation)));
 		}
 		enabled = false;
 	}

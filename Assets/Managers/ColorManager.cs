@@ -6,6 +6,7 @@ public class ColorManager : MonoBehaviour {
 	private static ColorManager instance;
 	public enum Colors { Red, Green, Blue, Normal };
 	public Material[] materials;
+	public Color[] colors;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,12 @@ public class ColorManager : MonoBehaviour {
 	void Update () {
 	}
 
-	public static Material GetMaterial(int color) {
+	public static Material GetMaterial(int color)
+	{
 		return instance.materials[color];
+	}
+	public static Color GetColor(int color)
+	{
+		return instance.colors[color];
 	}
 }

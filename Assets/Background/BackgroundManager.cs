@@ -9,6 +9,7 @@ public class BackgroundManager : MonoBehaviour
 	public float recycleOffset;
 	public Vector3 startPosition;
 	public Vector3 minSize, maxSize;
+	public float offsetXNext;
 
 	private Vector3 nextPosition;
 	private Queue<Transform> objectQueue;
@@ -54,7 +55,7 @@ public class BackgroundManager : MonoBehaviour
 		o.localScale = scale;
 		o.localPosition = position;
 
-		nextPosition.x += 278f;
+		nextPosition.x += offsetXNext;
 		objectQueue.Enqueue(o);
 	}
 
