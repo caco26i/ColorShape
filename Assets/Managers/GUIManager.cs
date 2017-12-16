@@ -27,14 +27,17 @@ public class GUIManager : MonoBehaviour {
 		instructionsText.enabled = false;
 		runnerText.enabled = false;
 		enabled = false;
+		GetComponent<AudioSource>().Play();
 	}
 	
 	private void GameOver () {
 		gameOverText.enabled = true;
 		instructionsText.enabled = true;
 		enabled = true;
+		GetComponent<AudioSource>().Stop();
+
 	}
-	
+
 	public static void SetBoosts(int boosts){
 		instance.boostsText.text = boosts.ToString();
 	}

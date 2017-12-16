@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4319516579598128}
   - component: {fileID: 212850267174297432}
   m_Layer: 0
-  m_Name: HumoSprite_3
+  m_Name: Nubes2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 1c55c33fa7dcdef4188e3030bbbcf1ac, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 331c40a860c28904a9e693db1a6b3061, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

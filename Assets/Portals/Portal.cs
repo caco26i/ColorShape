@@ -11,7 +11,7 @@ public class Portal : MonoBehaviour
 	public Colors color;
 	public Material material;
 
-	public enum Shapes { Circle, Square, Triangle};
+	public enum Shapes { Circle, Square, Triangle };
 	public Shapes shape;
 
 	public Renderer renderer;
@@ -54,34 +54,56 @@ public class Portal : MonoBehaviour
 	{
 		//int shape = (int)Cat.shape+0;
 		//int color = (int)Cat.color+0;
-		if (GUIManager.getRuleNumber() == 0) {
-			if ((int) Cat.color != (int) this.color) {
+		bool fallo = false;
+		if (GUIManager.getRuleNumber() == 0)
+		{
+			if ((int)Cat.color != (int)this.color)
+			{
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
 				Cat.LifeLess();
+				fallo = true;
 			}
 		}
-		else if (GUIManager.getRuleNumber() == 1) {
+		else if (GUIManager.getRuleNumber() == 1)
+		{
 			if ((int)Cat.shape != (int)this.shape)
 			{
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
 				Cat.LifeLess();
+				fallo = true;
+
 			}
 		}
-		else if (GUIManager.getRuleNumber() == 2) {
+		else if (GUIManager.getRuleNumber() == 2)
+		{
 			if ((int)Cat.color == (int)this.color)
 			{
 
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
 				Cat.LifeLess();
+				fallo = true;
+
 			}
 		}
-		else if (GUIManager.getRuleNumber() == 3) {
+		else if (GUIManager.getRuleNumber() == 3)
+		{
 			if ((int)Cat.shape == (int)this.shape)
 			{
 				GameObject.FindWithTag("Player").BroadcastMessage("AnimateSad");
 				Cat.LifeLess();
+				fallo = true;
 			}
 		}
+
+		if (fallo)
+		{
+			GameObject.FindWithTag("SadSong").GetComponent<AudioSource>().Play();
+		}
+		else {
+			GameObject.FindWithTag("CatSong").GetComponent<AudioSource>().Play();
+		}
+
+		fallo = false;
 
 		//Cat.shape = (Cat.Shapes) shape;
 		//Cat.color = (Cat.Colors) color;
@@ -94,7 +116,7 @@ public class Portal : MonoBehaviour
 
 	public void SpawnIfAvailable(Vector3 position)
 	{
-		position.z = offset.z - (PlatformManager.depth * (int) Random.Range(0, 3));
+		position.z = offset.z - (PlatformManager.depth * (int)Random.Range(0, 3));
 		if (gameObject.activeSelf || spawnChance <= Random.Range(0f, 100f))
 		{
 			return;
@@ -111,6 +133,6 @@ public class Portal : MonoBehaviour
 
 	public void RandomColor()
 	{
-		color = (Colors) (int)Random.Range(0, 3);
+		color = (Colors)(int)Random.Range(0, 3);
 	}
 }

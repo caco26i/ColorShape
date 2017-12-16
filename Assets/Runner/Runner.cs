@@ -74,9 +74,9 @@ public class Runner : MonoBehaviour
 
 	private void GameOver()
 	{
-		GetComponent<Renderer>().enabled = false;
+		//GetComponent<Renderer>().enabled = false;
 		GetComponent<Rigidbody>().isKinematic = true;
-		enabled = false;
+		//enabled = false;
 	}
 
 	public static void AddBoost()

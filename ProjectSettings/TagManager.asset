@@ -8,6 +8,8 @@ TagManager:
   - Life1
   - Life2
   - Life3
+  - CatSong
+  - SadSong
   layers:
   - Default
   - TransparentFX
