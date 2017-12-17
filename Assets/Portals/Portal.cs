@@ -101,17 +101,20 @@ public class Portal : MonoBehaviour
 		}
 		else {
 			GameObject.FindWithTag("CatSong").GetComponent<AudioSource>().Play();
+			Runner.bonuses += 100;
+			Runner.maxSpeed /= 2f;
+			print(Runner.maxSpeed);
 		}
 
 		fallo = false;
 
 		//Cat.shape = (Cat.Shapes) shape;
 		//Cat.color = (Cat.Colors) color;
-		print(Cat.shape);
-		print(this.shape);
+		//print(Cat.shape);
+		//print(this.shape);
 
-		print((int)Cat.color);
-		print(this.color);
+		//print((int)Cat.color);
+		//print(this.color);
 	}
 
 	public void SpawnIfAvailable(Vector3 position)
@@ -121,7 +124,7 @@ public class Portal : MonoBehaviour
 		{
 			return;
 		}
-		transform.localPosition = position + offset;
+		transform.localPosition = position + offset + Vector3.right * recycleOffset;
 		gameObject.SetActive(true);
 		RandomColor();
 	}

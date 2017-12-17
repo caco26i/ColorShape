@@ -11,6 +11,7 @@ public class PlatformManager : MonoBehaviour {
 	public float minY, maxY;
 	public Material[] materials;
 	public PhysicMaterial physicMaterial;
+
 	public Booster booster;
 
 	public Portal portalSquare;

@@ -4,11 +4,13 @@ public class Runner : MonoBehaviour
 {
 
 	public static float distanceTraveled;
+	public static float score;
 	private static int boosts;
+	public static int bonuses;
 
 	public float acceleration;
 
-	public float maxSpeed = 10f;
+	public static float maxSpeed = 10f;
 
 	public Vector3 boostVelocity, jumpVelocity;
 	public float gameOverY;
@@ -43,12 +45,15 @@ public class Runner : MonoBehaviour
 			}
 		}
 		distanceTraveled = transform.localPosition.x;
-		GUIManager.SetDistance(distanceTraveled);
+		score = distanceTraveled + bonuses;
+		GUIManager.SetDistance(score);
 
 		if (transform.localPosition.y < gameOverY)
 		{
 			GameEventManager.TriggerGameOver();
 		}
+
+		maxSpeed += 0.01f;
 	}
 
 	void FixedUpdate()
@@ -65,17 +70,20 @@ public class Runner : MonoBehaviour
 		boosts = 0;
 		GUIManager.SetBoosts(boosts);
 		distanceTraveled = 0f;
+		score = 0f;
 		GUIManager.SetDistance(distanceTraveled);
 		transform.localPosition = startPosition;
 		GetComponent<Renderer>().enabled = true;
 		GetComponent<Rigidbody>().isKinematic = false;
 		enabled = true;
+		GetComponent<Rigidbody>().AddForce(acceleration*2f, 0f, 0f, ForceMode.Impulse);
 	}
 
 	private void GameOver()
 	{
 		//GetComponent<Renderer>().enabled = false;
 		GetComponent<Rigidbody>().isKinematic = true;
+		LeaderBoardSample.gs = LeaderBoardSample.gameState.enterscore;
 		//enabled = false;
 	}
 
@@ -84,5 +92,4 @@ public class Runner : MonoBehaviour
 		boosts += 1;
 		GUIManager.SetBoosts(boosts);
 	}
-
 }

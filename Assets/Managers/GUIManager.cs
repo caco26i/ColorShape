@@ -4,7 +4,7 @@ public class GUIManager : MonoBehaviour {
 
 	private static GUIManager instance;
 
-	public GUIText ruleText, boostsText, distanceText, gameOverText, instructionsText, runnerText;
+	public GUIText ruleText, boostsText, distanceText, gameOverText, instructionsText;
 	public string[] rules = new string[] { "Shape", "F*ck da Shape" };
 	public int ruleNumber;
 
@@ -25,16 +25,18 @@ public class GUIManager : MonoBehaviour {
 	private void GameStart () {
 		gameOverText.enabled = false;
 		instructionsText.enabled = false;
-		runnerText.enabled = false;
 		enabled = false;
 		GetComponent<AudioSource>().Play();
+		GameObject.FindGameObjectWithTag("GameOver").SetActive(false);
+
 	}
-	
+
 	private void GameOver () {
 		gameOverText.enabled = true;
 		instructionsText.enabled = true;
 		enabled = true;
 		GetComponent<AudioSource>().Stop();
+		GameObject.FindGameObjectWithTag("GameOver").SetActive(true);
 
 	}
 
@@ -55,5 +57,10 @@ public class GUIManager : MonoBehaviour {
 	public static int getRuleNumber()
 	{
 		return instance.ruleNumber;
+	}
+
+	public static string GetScore() {
+		return instance.distanceText.text;
+
 	}
 }

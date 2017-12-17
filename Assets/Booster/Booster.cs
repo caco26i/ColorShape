@@ -4,7 +4,8 @@ public class Booster : MonoBehaviour {
 
 	public Vector3 offset, rotationVelocity;
 	public float recycleOffset, spawnChance;
-	
+	public static bool respawn;
+
 	void Start () {
 		GameEventManager.GameOver += GameOver;
 		gameObject.SetActive(false);
@@ -26,9 +27,17 @@ public class Booster : MonoBehaviour {
 	}
 
 	public void SpawnIfAvailable (Vector3 position) {
-		if(gameObject.activeSelf || spawnChance <= Random.Range(0f, 100f)) {
+		if (gameObject.activeSelf || spawnChance <= Random.Range(0f, 100f))
+		{
 			return;
 		}
+		else if (respawn)
+		{
+			transform.localPosition = position + offset;
+			gameObject.SetActive(true);
+			respawn = false;
+		}
+
 		transform.localPosition = position + offset;
 		gameObject.SetActive(true);
 	}
