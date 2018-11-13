@@ -36,6 +36,7 @@ public class Cat : MonoBehaviour
 		shape = Shapes.Normal;
 		color = Colors.Normal;
 		trail = Trail.First;
+
 		GameObject.FindWithTag("Life1").GetComponent<Animator>().SetBool("on", true);
 		GameObject.FindWithTag("Life2").GetComponent<Animator>().SetBool("on", true);
 		GameObject.FindWithTag("Life3").GetComponent<Animator>().SetBool("on", true);
@@ -91,32 +92,28 @@ public class Cat : MonoBehaviour
 
 	public void UpTrail()
 	{
-		if (trail != Trail.First)
+		if (trail == Trail.Second)
 		{
-			if (trail == Trail.Second)
-			{
-				trail = Trail.First;
-			}
-			if (trail == Trail.Third)
-			{
-				trail = Trail.Second;
-			}
+			trail = Trail.First;
 		}
+		if (trail == Trail.Third)
+		{
+			trail = Trail.Second;
+		}
+	
 	}
 
 	public void DownTrail()
 	{
-		if (trail != Trail.Third)
+		if (trail == Trail.Second)
 		{
-			if (trail == Trail.Second)
-			{
-				trail = Trail.Third;
-			}
-			if (trail == Trail.First)
-			{
-				trail = Trail.Second;
-			}
+			trail = Trail.Third;
 		}
+		if (trail == Trail.First)
+		{
+			trail = Trail.Second;
+		}
+	
 	}
 
 	public void RandomColor()

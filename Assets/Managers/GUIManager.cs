@@ -3,6 +3,7 @@
 public class GUIManager : MonoBehaviour {
 
 	private static GUIManager instance;
+	public GameObject gameOver;
 
 	public GUIText ruleText, boostsText, distanceText, gameOverText, instructionsText;
 	public string[] rules = new string[] { "Shape", "F*ck da Shape" };
@@ -27,8 +28,7 @@ public class GUIManager : MonoBehaviour {
 		instructionsText.enabled = false;
 		enabled = false;
 		GetComponent<AudioSource>().Play();
-		GameObject.FindGameObjectWithTag("GameOver").SetActive(false);
-
+		gameOver.SetActive(false);
 	}
 
 	private void GameOver () {
@@ -36,8 +36,7 @@ public class GUIManager : MonoBehaviour {
 		instructionsText.enabled = true;
 		enabled = true;
 		GetComponent<AudioSource>().Stop();
-		GameObject.FindGameObjectWithTag("GameOver").SetActive(true);
-
+		gameOver.SetActive(true);
 	}
 
 	public static void SetBoosts(int boosts){

@@ -52,8 +52,6 @@ public class Portal : MonoBehaviour
 
 	void OnTriggerEnter(Collider collider)
 	{
-		//int shape = (int)Cat.shape+0;
-		//int color = (int)Cat.color+0;
 		bool fallo = false;
 		if (GUIManager.getRuleNumber() == 0)
 		{
@@ -101,10 +99,8 @@ public class Portal : MonoBehaviour
 		}
 		else {
 			GameObject.FindWithTag("CatSong").GetComponent<AudioSource>().Play();
-			Runner.bonuses += 100;
-			Runner.maxSpeed /= 2f;
-			print(Runner.maxSpeed);
-		}
+			Runner.bonuses += 100; // se agregan 100 puntos al score cada vez que pasa por un portal
+        }
 
 		fallo = false;
 

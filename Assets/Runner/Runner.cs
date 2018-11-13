@@ -8,9 +8,9 @@ public class Runner : MonoBehaviour
 	private static int boosts;
 	public static int bonuses;
 
-	public float acceleration;
+	public static float acceleration;
 
-	public static float maxSpeed = 10f;
+	public float maxSpeed = 10f;
 
 	public Vector3 boostVelocity, jumpVelocity;
 	public float gameOverY;
@@ -26,14 +26,17 @@ public class Runner : MonoBehaviour
 		GetComponent<Renderer>().enabled = false;
 		GetComponent<Rigidbody>().isKinematic = true;
 		enabled = false;
-	}
+        acceleration = 3;
+
+    }
 
 	void Update()
 	{
-		if (Input.GetButtonDown("Jump"))
+		/*if (Input.GetButtonDown("Jump"))
 		{
 			if (touchingPlatform)
 			{
+
 				GetComponent<Rigidbody>().AddForce(jumpVelocity, ForceMode.VelocityChange);
 				touchingPlatform = false;
 			}
@@ -43,7 +46,7 @@ public class Runner : MonoBehaviour
 				boosts -= 1;
 				GUIManager.SetBoosts(boosts);
 			}
-		}
+		}*/
 		distanceTraveled = transform.localPosition.x;
 		score = distanceTraveled + bonuses;
 		GUIManager.SetDistance(score);
@@ -52,13 +55,12 @@ public class Runner : MonoBehaviour
 		{
 			GameEventManager.TriggerGameOver();
 		}
-
-		maxSpeed += 0.01f;
+		maxSpeed = distanceTraveled/100 + 10; //se va aumentando la velocidad conforme avanza
 	}
 
 	void FixedUpdate()
 	{
-		if (GetComponent<Rigidbody>().velocity.magnitude <= maxSpeed)
+		if (GetComponent<Rigidbody>().velocity.x <= maxSpeed)
 		{
 			GetComponent<Rigidbody>().AddForce(acceleration, 0f, 0f, ForceMode.Acceleration);
 		}
@@ -76,7 +78,8 @@ public class Runner : MonoBehaviour
 		GetComponent<Renderer>().enabled = true;
 		GetComponent<Rigidbody>().isKinematic = false;
 		enabled = true;
-		GetComponent<Rigidbody>().AddForce(acceleration*2f, 0f, 0f, ForceMode.Impulse);
+		//GetComponent<Rigidbody>().AddForce(acceleration*2f, 0f, 0f, ForceMode.Impulse);
+		//GetComponent<Rigidbody>().velocity.magnitude
 	}
 
 	private void GameOver()
